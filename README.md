@@ -29,22 +29,6 @@ High Availability describes systems that are dependable enough to operate contin
 I used three avilability zones to maintain HA in this setup. 
 
 
-## Infrustucture provisiioning 
-
-* Install AWS CLI
-* Setup IAM account to provision environment 
-* Install terraform 
-* Configure AWS CLI
-* Create AWS key pair
-* Setup terraform code repo in local machine
-* Terraform initialization
-* Terraform apply
-* Setup wordpress site
-* Login to bastion server 
-* Install kubectl
-* Configure kubectl
-* Login to database
-
 
 
 ### 1. Setup IAM account to provision environment 
