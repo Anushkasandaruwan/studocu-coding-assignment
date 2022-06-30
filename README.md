@@ -159,7 +159,7 @@ $ terraform destroy
 
 # Output truncated... 
 
-Destroy complete! Resources: 82 destroyed.
+Destroy complete! Resources: 40 destroyed.
 
 ```
 
