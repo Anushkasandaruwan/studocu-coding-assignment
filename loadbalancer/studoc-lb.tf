@@ -1,3 +1,7 @@
+##############################################################################
+#######################      Application Load balancer         ##############################
+##############################################################################
+
 module "alb" {
   source  = "terraform-aws-modules/alb/aws"
 
@@ -10,9 +14,6 @@ module "alb" {
   subnets            = var.vpc.public_subnets
   security_groups    = [var.alb_sg.id]
 
-  # access_logs = {
-  #   bucket = "my-alb-logs"
-  # }
 
   target_groups = [
     {
@@ -23,14 +24,14 @@ module "alb" {
     }]
   # ]
 
-  # https_listeners = [
-  #   {
-  #     port               = 443
-  #     protocol           = "HTTPS"
-  #     certificate_arn    = "arn:aws:iam::123456789012:server-certificate/test_cert-123456789012"
-  #     target_group_index = 0
-  #   }
-  # ]
+  https_listeners = [
+    {
+      port               = 443
+      protocol           = "HTTPS"
+      certificate_arn    = var.certificate_arn
+      target_group_index = 0
+    }
+  ]
 
   http_tcp_listeners = [
     {
@@ -41,6 +42,6 @@ module "alb" {
   ]
 
   tags = {
-    Environment = "Test"
+    Name = "studocu"
   }
 }

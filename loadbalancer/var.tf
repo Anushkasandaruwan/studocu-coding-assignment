@@ -20,3 +20,7 @@ variable "vpc" {
 variable "alb_sg" {
     type = any
 }
+
+variable "certificate_arn" {
+  type    = string
+}

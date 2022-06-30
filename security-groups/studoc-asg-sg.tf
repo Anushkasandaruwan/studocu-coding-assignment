@@ -1,20 +1,18 @@
 ##############################################################################
-#######################      ALB SG        ##############################
+#######################      ALB asg        ##############################
 ##############################################################################
 
-resource "aws_security_group" "alb_sg" {
-  name_prefix = var.alb_sg_name
+resource "aws_security_group" "asg_sg" {
+  name_prefix = var.asg_sg_name
   vpc_id      = var.vpc_id
-  description = "Manage Access to ALB"
+  description = "Manage Access to ASG"
 
   ingress {
-    from_port = 0
-    to_port   = 0
-    protocol  = -1
-    description = "Manage Access to ALB"
-    cidr_blocks = [
-      "0.0.0.0/0",
-    ]
+    from_port = 80
+    to_port   = 80
+    protocol  = "tcp"
+    description = "Manage Access to ASG"
+    security_groups = [aws_security_group.alb_sg.id]
   }
 
 

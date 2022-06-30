@@ -1,12 +1,17 @@
+##############################################################################
+#######################      Auto Scalling Group         ##############################
+##############################################################################
+
+
 module "asg" {
   source  = "terraform-aws-modules/autoscaling/aws"
 
   # Autoscaling group
   name = var.asg_name
 
-  min_size                  = 1
-  max_size                  = 1
-  desired_capacity          = 1
+  min_size                  = 3
+  max_size                  = 3
+  desired_capacity          = 3
   wait_for_capacity_timeout = 0
   health_check_type         = "EC2"
   vpc_zone_identifier       = var.vpc.private_subnets
@@ -94,8 +99,7 @@ module "asg" {
     }
   ]
 
-#   tags = {
-#     Environment = "dev"
-#     Project     = "megasecret"
-#   }
+  tags = {
+    Name = "studocu"
+  }
 }

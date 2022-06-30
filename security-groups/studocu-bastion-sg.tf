@@ -1,17 +1,17 @@
 ##############################################################################
-#######################      ALB SG        ##############################
+#######################      ALB asg        ##############################
 ##############################################################################
 
-resource "aws_security_group" "alb_sg" {
-  name_prefix = var.alb_sg_name
+resource "aws_security_group" "bastion_sg" {
+  name_prefix = var.bastion_sg_name
   vpc_id      = var.vpc_id
   description = "Manage Access to ALB"
 
   ingress {
-    from_port = 0
-    to_port   = 0
-    protocol  = -1
-    description = "Manage Access to ALB"
+    from_port = 22
+    to_port   = 22
+    protocol  = "tcp"
+    description = "Manage SSH access to bastion"
     cidr_blocks = [
       "0.0.0.0/0",
     ]
