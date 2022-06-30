@@ -1,6 +1,6 @@
-# ADM Wordpress Solution
+# Studocu
 
-## Wordpress Solution design
+## StudcoU Solution design
 
 ![Alt text](images/studocu.png?raw=true "solution_diagram")
 
